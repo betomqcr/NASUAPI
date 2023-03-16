@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Datos.DTO
 {
-    internal class ClientesDTO
+    public class ClientesDTO
     {
     }
 }
