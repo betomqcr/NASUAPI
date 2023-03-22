@@ -40,7 +40,18 @@ namespace Datos.Class
                     FechaModficacion=request.FechaModficacion,
                     UsarMismosDatosFactura=request.UsarMismosDatosFactura
                 };
-                return new ResponseGeneric<ClientesDTO>(request);
+
+                _entities.Clientes.Add(cliente);
+                int res = _entities.SaveChanges();
+                if(res==1)
+                {
+                    return new ResponseGeneric<ClientesDTO>("Error");
+                }
+                else
+                {
+                    return new ResponseGeneric<ClientesDTO>(request);
+                }
+                
 
             }
             catch (Exception ex) 
